@@ -9,7 +9,7 @@ export default function Home() {
       api: "api/llm-response",
     });
   return (
-    <main className="flex min-h-screen flex-col items-center p-6 text-black bg-slate-900">
+    <main className="flex min-h-screen justify-center flex-col items-center p-6 text-black bg-slate-900">
       <div className="mb-5 text-center">
         <div className="md:flex md:items-center gap-3">
           <h1 className="text-2xl font-black text-white">
