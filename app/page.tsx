@@ -13,33 +13,24 @@ export default function Home() {
       api: "api/llm-response",
     });
   return (
-    <main className="flex min-h-screen flex-col items-center p-12 text-black bg-slate-100">
-      <div className="mb-4 flex flex-row gap-4">
-        <div>
-          <Image
-            src={logo}
-            alt="logo"
-            width={63}
-            height={63}
-            className="-mt-1"
-          />
-        </div>
-        <div>
-          <h1 className="text-2xl font-black">Ian Macalisang (Experimental)</h1>
-          <p>Model: llama-3.1-70b-versatile</p>
+    <main className="flex min-h-screen flex-col items-center p-6 text-black bg-slate-50">
+      <div className="mb-4 text-center">
+        <div className="md:flex md:items-center gap-3">
+          <h1 className="text-1xl font-black">ian macalisang</h1>
+          <p className="text-sm text-gray-500">
+            experimental projects with open-source ai.
+          </p>
         </div>
       </div>
-      <div className="w-full max-w-3xl border-gray-200 border-2 rounded-xl bg-white p-5">
+      <div className="w-full max-w-3xl border-gray-200 border-2 rounded-xl bg-white p-4">
         {RenderForm()}
         <br />
         {RenderMessages()}
       </div>
       <div className="text-sm text-gray-500 font-semibold mt-3">
-        An Ian Macalisang Production
+        an ian macalisang production
       </div>
-      <p className="text-sm text-gray-500">
-        Experimental projects with open-source AI.
-      </p>
+      <p className="text-sm text-gray-500">model: llama-3.1-70b-versatile</p>
     </main>
   );
 
