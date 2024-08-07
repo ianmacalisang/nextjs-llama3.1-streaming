@@ -26,7 +26,7 @@ export default function Home() {
         </div>
         <div>
           <h1 className="text-2xl font-black">Ian Macalisang (Experimental)</h1>
-          <p>Model: Llama 3.1 8B</p>
+          <p>Model: llama-3.1-70b-versatile</p>
         </div>
       </div>
       <div className="w-full max-w-3xl border-gray-200 border-2 rounded-xl bg-white p-5">

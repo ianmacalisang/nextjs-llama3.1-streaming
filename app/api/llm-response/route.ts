@@ -6,28 +6,26 @@ export async function POST(req: Request, res: Response) {
   const prompt = reqBody.data.prompt;
 
   // // for Together.ai. Get your api-key and save it in .env file with TOGETHER_API_KEY name
-  const openai = createOpenAI({
-    baseURL: "https://api.together.xyz/v1",
-    apiKey: process.env.TOGETHER_API_KEY,
-  });
-
-  const result = await streamText({
-    model: openai("meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo"),
-    prompt: prompt,
-  });
-
-
-  // // for Groq. Get your api-key and save it in .env file with GROQ_API_KEY name
   // const openai = createOpenAI({
-  //   baseURL:'https://api.groq.com/openai/v1',
-  //   apiKey: process.env.GROQ_API_KEY
+  //  baseURL: "https://api.together.xyz/v1",
+  //  apiKey: process.env.TOGETHER_API_KEY,
   // });
 
   // const result = await streamText({
-  //   model: openai('llama-3.1-70b-versatile'),
-  //   prompt: prompt
-  // });
+  //  model: openai("meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo"),
+  //  prompt: prompt,
+  //});
 
+  // // for Groq. Get your api-key and save it in .env file with GROQ_API_KEY name
+  const openai = createOpenAI({
+    baseURL: "https://api.groq.com/openai/v1",
+    apiKey: process.env.GROQ_API_KEY,
+  });
+
+  const result = await streamText({
+    model: openai("llama-3.1-70b-versatile"),
+    prompt: prompt,
+  });
 
   // // For Fireworks.ai. Get your api-key and save it in .env file with FIREWORKS_API_KEY name
   // const openai = createOpenAI({
