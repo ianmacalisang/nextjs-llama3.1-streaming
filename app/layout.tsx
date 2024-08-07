@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "LLama 3.1 | Ian Macalisang",
+  title: "Llama-3.1-70B | Ian Macalisang",
   description:
     "The open source AI model you can fine-tune, distill and deploy anywhere.",
 };
