@@ -1,11 +1,7 @@
 "use client";
 import { useChat } from "ai/react";
-import { Bot, Loader2, Send, User2 } from "lucide-react";
+import { Bot, Loader2, Send, User2, BrainCircuitIcon } from "lucide-react";
 import Markdown from "./component/markdown";
-
-import logo from "../public/meta-logo-facebook.svg";
-
-import Image from "next/image";
 
 export default function Home() {
   const { messages, input, handleInputChange, handleSubmit, isLoading, stop } =
@@ -14,7 +10,7 @@ export default function Home() {
     });
   return (
     <main className="flex min-h-screen flex-col items-center p-6 text-black bg-slate-900">
-      <div className="mb-4 text-center">
+      <div className="mb-5 text-center">
         <div className="md:flex md:items-center gap-3">
           <h1 className="text-1xl font-black text-white">ian macalisang</h1>
           <p className="text-sm text-gray-400">
@@ -22,15 +18,20 @@ export default function Home() {
           </p>
         </div>
       </div>
-      <div className="w-full max-w-3xl rounded-xl bg-slate-800 p-6">
+      <div className="w-full max-w-3xl rounded-xl p-4">
         {RenderForm()}
         <br />
         {RenderMessages()}
       </div>
-      <div className="text-sm text-gray-400 font-semibold mt-3">
-        an ian macalisang production
+      <div className="text-sm text-gray-400 flex gap-2 align-items-center">
+        <BrainCircuitIcon size={30} className="mt-1" />
+        <div>
+          <b>ian macalisang production</b>
+          <p className="text-sm text-gray-600">
+            model: llama-3.1-70b-versatile
+          </p>
+        </div>
       </div>
-      <p className="text-sm text-gray-600">model: llama-3.1-70b-versatile</p>
     </main>
   );
 
@@ -56,11 +57,11 @@ export default function Home() {
           value={input}
           disabled={isLoading}
           onChange={handleInputChange}
-          className="w-full rounded-full border py-2 px-4 border-slate-700 bg-slate-700 text-white"
+          className="w-full rounded-full border py-2 px-4 border-slate-700 bg-slate-700 text-white hover:border-slate-500"
         />
         <button
           type="submit"
-          className="rounded-full border shadow-md border-slate-700 flex flex-row bg-slate-700"
+          className="rounded-full border shadow-md border-slate-700 flex flex-row bg-slate-700 hover:border-slate-500"
         >
           {isLoading ? (
             <Loader2
@@ -80,28 +81,28 @@ export default function Home() {
     return (
       <div
         id="chatbox"
-        className="flex flex-col-reverse w-full text-left mt-4 gap-4 whitespace-pre-wrap text-overflow-wrap text-md"
+        className="flex flex-col-reverse w-full text-left mt-4 gap-4 whitespace-pre-wrap text-overflow-wrap text-sm"
       >
         {messages.map((m, index) => {
           return (
             <div
               key={index}
-              className={`p-3 rounded-md ml-10 relative border-l-2 border-slate-400 ${
+              className={`p-3 rounded-md ml-8 relative border-l-2 border-slate-400 ${
                 m.role === "user"
-                  ? "bg-slate-600 text-white"
-                  : "bg-slate-700 text-gray-400"
+                  ? "bg-slate-700 text-white"
+                  : "bg-slate-800 text-gray-400"
               }`}
             >
               <Markdown text={m.content} />
               {m.role === "user" ? (
                 <User2
                   size={35}
-                  className="bg-slate-700 absolute top-1 -left-10  rounded-full p-2"
+                  className="absolute top-1 -left-10  rounded-full p-1"
                 />
               ) : (
                 <Bot
                   size={35}
-                  className={`bg-slate-700 absolute top-1 -left-10 rounded-full p-2 ${
+                  className={`absolute top-1 -left-10 rounded-full p-1 ${
                     isLoading && index === messages.length - 1
                       ? "animate-bounce"
                       : ""
