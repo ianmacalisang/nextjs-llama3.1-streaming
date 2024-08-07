@@ -26,8 +26,12 @@ body {
   }
 }
 
-
 #chatbox a {
   color: #0842a0;
   font-weight: bold;
+}
+
+code {
+  text-wrap: balance;
+  @apply p-3 text-green-600 text-sm;
 }

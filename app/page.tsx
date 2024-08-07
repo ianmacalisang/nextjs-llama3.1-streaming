@@ -79,7 +79,7 @@ export default function Home() {
     return (
       <div
         id="chatbox"
-        className="flex flex-col-reverse w-full text-left mt-4 gap-4 whitespace-pre-wrap"
+        className="flex flex-col-reverse w-full text-left mt-4 gap-4 whitespace-pre-wrap text-overflow-wrap"
       >
         {messages.map((m, index) => {
           return (
