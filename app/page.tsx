@@ -12,8 +12,13 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center p-6 text-black bg-slate-900">
       <div className="mb-5 text-center">
         <div className="md:flex md:items-center gap-3">
-          <h1 className="text-1xl font-black text-white">ian macalisang</h1>
-          <p className="text-sm text-gray-400">
+          <h1 className="text-2xl font-black text-white">
+            ian
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-500">
+              macalisang
+            </span>
+          </h1>
+          <p className="text-sm text-gray-200 font-semibold">
             experimental projects with open-source ai.
           </p>
         </div>
@@ -26,7 +31,7 @@ export default function Home() {
       <div className="text-sm text-gray-400 flex gap-2 align-items-center">
         <BrainCircuitIcon size={30} className="mt-1" />
         <div>
-          <b>ian macalisang production</b>
+          <b>ian macalisang production.</b>
           <p className="text-sm text-gray-600">
             model: llama-3.1-70b-versatile
           </p>
@@ -52,7 +57,9 @@ export default function Home() {
         <input
           type="text"
           placeholder={
-            isLoading ? "Nag-iisip ng isasagot sayo..." : "Ano kailangan mo?"
+            isLoading
+              ? "Nag-iisip ng isasagot sayo..."
+              : "Ano matutulong ko? (e.g. patulong magpagawa ng travel plan para sa family)"
           }
           value={input}
           disabled={isLoading}
