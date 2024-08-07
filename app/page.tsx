@@ -13,24 +13,24 @@ export default function Home() {
       api: "api/llm-response",
     });
   return (
-    <main className="flex min-h-screen flex-col items-center p-6 text-black bg-slate-50">
+    <main className="flex min-h-screen flex-col items-center p-6 text-black bg-slate-900">
       <div className="mb-4 text-center">
         <div className="md:flex md:items-center gap-3">
-          <h1 className="text-1xl font-black">ian macalisang</h1>
-          <p className="text-sm text-gray-500">
+          <h1 className="text-1xl font-black text-white">ian macalisang</h1>
+          <p className="text-sm text-gray-400">
             experimental projects with open-source ai.
           </p>
         </div>
       </div>
-      <div className="w-full max-w-3xl border-gray-200 border-2 rounded-xl bg-white p-4">
+      <div className="w-full max-w-3xl rounded-xl bg-slate-800 p-6">
         {RenderForm()}
         <br />
         {RenderMessages()}
       </div>
-      <div className="text-sm text-gray-500 font-semibold mt-3">
+      <div className="text-sm text-gray-400 font-semibold mt-3">
         an ian macalisang production
       </div>
-      <p className="text-sm text-gray-500">model: llama-3.1-70b-versatile</p>
+      <p className="text-sm text-gray-600">model: llama-3.1-70b-versatile</p>
     </main>
   );
 
@@ -56,19 +56,20 @@ export default function Home() {
           value={input}
           disabled={isLoading}
           onChange={handleInputChange}
-          className="border-b outline-none w-full px-4 py-2 text-[#0842A0] placeholder:text-[#0842A099] focus:placeholder-transparent disabled:bg-transparent"
+          className="w-full rounded-full border py-2 px-4 border-slate-700 bg-slate-700 text-white"
         />
         <button
           type="submit"
-          className="rounded-full shadow-md border flex flex-row"
+          className="rounded-full border shadow-md border-slate-700 flex flex-row bg-slate-700"
         >
           {isLoading ? (
             <Loader2
               onClick={stop}
-              className="p-3 h-10 w-10 stroke-stone-500 animate-spin"
+              className="p-3 h-10 w-10 animate-spin"
+              color="#ffffff"
             />
           ) : (
-            <Send className="p-3 h-10 w-10 stroke-stone-500" />
+            <Send className="p-3 h-10 w-10" color="#ffffff" />
           )}
         </button>
       </form>
@@ -79,26 +80,28 @@ export default function Home() {
     return (
       <div
         id="chatbox"
-        className="flex flex-col-reverse w-full text-left mt-4 gap-4 whitespace-pre-wrap text-overflow-wrap"
+        className="flex flex-col-reverse w-full text-left mt-4 gap-4 whitespace-pre-wrap text-overflow-wrap text-md"
       >
         {messages.map((m, index) => {
           return (
             <div
               key={index}
-              className={`p-4 shadow-lg rounded-md ml-10 relative ${
-                m.role === "user" ? "bg-slate-100" : ""
+              className={`p-3 rounded-md ml-10 relative border-l-2 border-slate-400 ${
+                m.role === "user"
+                  ? "bg-slate-600 text-white"
+                  : "bg-slate-700 text-gray-400"
               }`}
             >
               <Markdown text={m.content} />
               {m.role === "user" ? (
                 <User2
-                  size={32}
-                  className="absolute top-1 -left-10 border rounded-full p-2 shadow-lg"
+                  size={35}
+                  className="bg-slate-700 absolute top-1 -left-10  rounded-full p-2"
                 />
               ) : (
                 <Bot
-                  size={32}
-                  className={`absolute top-1 -left-10 border rounded-full p-2 shadow-lg stroke-[#0842A0] ${
+                  size={35}
+                  className={`bg-slate-700 absolute top-1 -left-10 rounded-full p-2 ${
                     isLoading && index === messages.length - 1
                       ? "animate-bounce"
                       : ""
