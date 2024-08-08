@@ -62,7 +62,7 @@ export default function Home() {
           placeholder={
             isLoading
               ? "nag-iisip ng isasagot sayo..."
-              : "ano matutulong ko? (e.g. patulong magpagawa ng travel plan para sa family)"
+              : "ano matutulong ko? (e.g. pagawa ng code para sa online shop ko)"
           }
           value={input}
           disabled={isLoading}
