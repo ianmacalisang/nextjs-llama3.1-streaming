@@ -26,7 +26,7 @@ export default function Home() {
           </p>
         </div>
       </div>
-      <div className="w-full max-w-3xl rounded-xl p-4">
+      <div className="w-full max-w-xl rounded-xl p-4">
         {RenderForm()}
         <br />
         {RenderMessages()}
