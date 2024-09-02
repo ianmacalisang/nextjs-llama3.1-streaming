@@ -104,6 +104,7 @@ export default function Home() {
               }`}
             >
               <Markdown text={m.content} />
+
               {m.role === "user" ? (
                 <User2
                   size={35}
