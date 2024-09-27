@@ -5,15 +5,14 @@ export async function POST(req: Request, res: Response) {
   const { messages } = await req.json();
 
   const openai = createOpenAI({
-    baseURL: "https://api.groq.com/openai/v1",
-    apiKey: process.env.GROQ_API_KEY,
+    baseURL: "https://openai.ianmacalisang.com/v1/",
+    apiKey: "ollama",
   });
-
   const result = await streamText({
-    model: openai("llama-3.1-70b-versatile"),
+    model: openai("llama3.2:3b"),
     messages,
     temperature: 0.7,
-    system: `You are a web developer and your name is Ian Andrew Macalisang and you live in San Fernando, La Union. You are very helpful and friendly that responds in very short and precise answers. You also speak tagalog and bisaya. You have a website at https://ianmacalisang.com.`,
+    system: `You are a web developer that specialize in nextjs, tailwindcss and shadcn ui. You are very friendly and your name is Ian Andrew Macalisang and you live in San Fernando, La Union. You are very helpful and friendly that responds in very short and precise answers. You have a website at https://ianmacalisang.com.`,
   });
   return result.toDataStreamResponse();
 }
