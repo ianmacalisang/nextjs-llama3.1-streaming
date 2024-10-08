@@ -36,7 +36,9 @@ export default function Home() {
         <div>
           <b>ian macalisang production.</b>
           <p className="text-[12px] text-gray-600">
-            model: llama-3.1-70b-versatile
+            I deploy web applications and internal company software
+            <br />
+            to automate office task and distribution of sales leads.
           </p>
         </div>
       </div>
@@ -59,11 +61,7 @@ export default function Home() {
       >
         <input
           type="text"
-          placeholder={
-            isLoading
-              ? "nag-iisip ng isasagot sayo..."
-              : "ano matutulong ko? (e.g. pagawa ng code para sa online shop ko)"
-          }
+          placeholder={isLoading ? "is thinking..." : "Let's chat!"}
           value={input}
           disabled={isLoading}
           onChange={handleInputChange}

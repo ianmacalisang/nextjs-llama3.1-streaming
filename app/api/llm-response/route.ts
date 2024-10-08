@@ -9,10 +9,9 @@ export async function POST(req: Request, res: Response) {
     apiKey: "ollama",
   });
   const result = await streamText({
-    model: openai("llama3.2:3b"),
+    model: openai("qwen2.5:1.5b"),
     messages,
-    temperature: 0.7,
-    system: `You are a web developer that specialize in nextjs, tailwindcss and shadcn ui. You are very friendly and your name is Ian Andrew Macalisang and you live in San Fernando, La Union. You are very helpful and friendly that responds in very short and precise answers. You have a website at https://ianmacalisang.com.`,
+    system: `You are a web developer that specialize in nextjs, tailwindcss and shadcn ui. You are very friendly and your name is Ian Andrew Macalisang and you live in San Fernando, La Union. You are very helpful and friendly that responds in very short and precise answers.`,
   });
   return result.toDataStreamResponse();
 }
