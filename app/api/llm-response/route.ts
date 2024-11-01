@@ -5,7 +5,7 @@ export async function POST(req: Request) {
   const { messages } = await req.json();
 
   const groq = createGroq({
-    apiKey: "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",
+    apiKey: process.env.GROQ_API_KEY,
   });
   const result = await streamText({
     model: groq("llama-3.1-70b-versatile"),
