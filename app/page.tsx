@@ -7,6 +7,7 @@ export default function Home() {
   const { messages, input, handleInputChange, handleSubmit, isLoading, stop } =
     useChat({
       api: "api/llm-response",
+      keepLastMessageOnError: true,
     });
   return (
     <main className="flex min-h-screen justify-center flex-col items-center p-6 text-black bg-slate-900">
