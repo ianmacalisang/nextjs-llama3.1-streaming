@@ -3,28 +3,39 @@ import { useChat } from "ai/react";
 import { Bot, Loader2, Send, User2, BrainCircuitIcon } from "lucide-react";
 import Markdown from "./component/markdown";
 
+import Image from "next/image";
+
 export default function Home() {
   const { messages, input, handleInputChange, handleSubmit, isLoading, stop } =
     useChat({
-      api: "api/llm-response",
+      api: "/api/llm-response",
       keepLastMessageOnError: true,
     });
   return (
     <main className="flex min-h-screen justify-center flex-col items-center p-6 text-black bg-slate-900">
       <div className="mb-5 text-center">
-        <div className="md:flex md:items-center gap-4">
+        <div className="flex items-center gap-3">
+          <Image
+            src="https://api-pilatre.ianmacalisang.com/uploads/andy_b5b97dfcb5.jpg"
+            alt="logo"
+            width={60}
+            height={60}
+            className="rounded-full aspect-square object-cover"
+          />
+          <div className="text-left">
           <h1 className="text-2xl font-black text-white mb-2 md:mb-0">
             ian
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-500">
-              macalisang
+              macalisang.
             </span>
           </h1>
           <p className="text-sm text-gray-200 font-semibold">
-            just another open-source{" "}
+              product deployment knowledge base {" "}
             <span className="px-2 py-1 rounded-md bg-gradient-to-r from-blue-600 to-purple-500 font-bold">
-              ai model.
+              AI Assistant.
             </span>
           </p>
+          </div>
         </div>
       </div>
       <div className="w-full max-w-xl rounded-xl p-4">
@@ -62,7 +73,7 @@ export default function Home() {
       >
         <input
           type="text"
-          placeholder={isLoading ? "is thinking..." : "Let's chat!"}
+          placeholder={isLoading ? "is thinking..." : "How can I help?"}
           value={input}
           disabled={isLoading}
           onChange={handleInputChange}
@@ -90,7 +101,7 @@ export default function Home() {
     return (
       <div
         id="chatbox"
-        className="flex flex-col-reverse w-full text-left mt-4 gap-4 whitespace-pre-wrap text-overflow-wrap text-sm"
+        className="flex flex-col-reverse w-full text-left mt-4 mb-4 gap-4 whitespace-pre-wrap text-overflow-wrap text-sm"
       >
         {messages.map((m, index) => {
           return (
